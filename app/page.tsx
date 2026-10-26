@@ -637,6 +637,26 @@ function HomePage() {
 
   return (
     <div className="min-h-[100dvh] w-full bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 flex flex-col items-center p-4 pt-16 md:p-8 md:pt-16 overflow-x-hidden">
+      {/* 东南大学专属高颜值入口横幅 */}
+      <div className="w-full max-w-4xl mb-6 z-40 animate-in fade-in slide-in-from-top-4 duration-500">
+        <a
+          href="/seu-graph"
+          className="group relative flex items-center justify-between px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-950/90 via-slate-900/90 to-emerald-950/90 border border-emerald-500/50 hover:border-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.25)] hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] backdrop-blur-md transition-all duration-300"
+        >
+          <div className="flex items-center gap-3">
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <span className="font-semibold text-sm md:text-base text-white tracking-wide group-hover:text-emerald-300 transition-colors">
+              🎓 东南大学专项入口：《工科数学分析》&《几何与代数》交互式知识图谱与错题诊断平台 →
+            </span>
+          </div>
+          <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-600/30 border border-emerald-400/40 text-emerald-300 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+            点击进入工作台
+          </span>
+        </a>
+      </div>
       <input
         ref={fileInputRef}
         type="file"

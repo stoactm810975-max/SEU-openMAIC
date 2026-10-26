@@ -40,6 +40,23 @@
   <a href="https://open.maic.chat/">Live Demo</a> · <a href="#-quick-start">Quick Start</a> · <a href="#lemonade-local-ai">Lemonade</a> · <a href="#funasr-local-asr">FunASR</a> · <a href="#-features">Features</a> · <a href="#-use-cases">Use Cases</a> · <a href="#-agent-workbench-integration">OpenClaw</a>
 </p>
 
+---
+
+### 🎓 特别发布：东南大学硬核基础课交互式知识图谱伴学平台 (SEU Edition)
+
+本项目已针对**东南大学（SEU）“四牌楼 · 九龙湖 · 丁家桥”**联合教研体系深度定制硬核基础课伴学平台：
+- **两门核心学科**：《工科数学分析（上册）》&《几何与代数（周建华第二版）》
+- **全流程教学闭环**：
+  1. 动态 SVG 贝塞尔连线交互式知识图谱（带 `dx/scale` 防漂移与 `fitView` 自适应）；
+  2. KaTeX 印刷体数学公式全量渲染；
+  3. AI 智能归因诊断与四牌楼教授/九龙湖学长规则兜底引擎；
+  4. 三大 HTML5 Canvas 动态实验沙盒（泰勒多项式逼近、矩阵特征变换、空间二次曲面截痕法）；
+  5. 东南大学实景风物展台与大门开启开场动画。
+- **快速访问**：运行 [`start-seu.bat`](./start-seu.bat) 即可直达 `http://localhost:3000/seu-graph`
+- **详细开发者与智能体架构规范**：请查阅 **[《SEU_MAIC_AGENT_GUIDE.md》](./SEU_MAIC_AGENT_GUIDE.md)**
+
+---
+
 ## 🗞️ News
 
 - **2026-10-22** — [v1.3.0-rc.1](https://github.com/THU-MAIC/OpenMAIC/releases/tag/v1.3.0-rc.1): **knowledge base** (release candidate). Every upload is kept in its owner's knowledge base until deleted, organized in folders and parsed once for every conversation; a library page manages it, the composer offers it through `@`, and the agent can read, search and organize it. The upgrade has release conditions (stop all old instances first; no rollback below this release), so read the release's **Breaking Changes** before upgrading.

@@ -1,0 +1,349 @@
+{
+  "nodes": [
+    {
+      "id": "ma-limit-01",
+      "subject": "math-analysis",
+      "label": "海涅定理与夹逼准则",
+      "englishLabel": "Heine Theorem & Squeeze Theorem",
+      "textbookRef": "《工科数学分析(上)》第1章 1.4节",
+      "category": "basic",
+      "difficulty": 2,
+      "status": "mastered",
+      "classroomId": "seu-ma-01",
+      "position": { "x": 100, "y": 220 },
+      "summary": "函数极限与数列极限的归结原则（海涅定理）：$$\\lim_{x \\to x_0} f(x) = A \\iff \\forall \\{x_n\\} \\text{ 满足 } x_n \\to x_0 \\, (x_n \\neq x_0), \\text{ 均有 } \\lim_{n \\to \\infty} f(x_n) = A$$ 常用于证明极限不存在（找两个趋向不同极限的子列）。夹逼准则：若 $g(x) \\le f(x) \\le h(x)$ 且 $\\lim g(x) = \\lim h(x) = A$，则 $\\lim f(x) = A$。",
+      "examQuestion": "【东大期末真题】证明极限 $\\lim_{x \\to 0} \\sin(\\frac{1}{x})$ 不存在；并求极限 $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k}$。",
+      "professorTip": "四牌楼老教授点拨：遇到振荡函数极限，切莫盲目套用连续函数性质！海涅定理是连接连续与离散的黄金桥梁，构造反例时取 $x_n = \\frac{1}{2n\\pi}$ 与 $y_n = \\frac{1}{2n\\pi + \\frac{\\pi}{2}}$，极限分别趋于 $0$ 和 $1$，即可一招破局。",
+      "seniorSecret": "九龙湖满绩学长口诀：遇夹逼定放缩，首尾两头向中靠；判不存在选海涅，奇偶二列见分晓。放缩求和题抓住分母最大项与最小项直接秒杀！",
+      "simulationType": "taylor-approx",
+      "quiz": {
+        "question": "利用海涅定理判定函数 $f(x) = \\cos(\\frac{1}{x})$ 在 $x \\to 0$ 时的极限状态，下列说法正确的是？",
+        "options": [
+          "极限为 $0$",
+          "极限为 $1$",
+          "取 $x_n = \\frac{1}{2n\\pi}$ 时趋于 $1$，取 $y_n = \\frac{1}{(2n+1)\\pi}$ 时趋于 $-1$，故极限不存在",
+          "因为 $-1 \\le \\cos(\\frac{1}{x}) \\le 1$，由夹逼准则极限为 $0$"
+        ],
+        "correctIndex": 2,
+        "explanation": "根据海涅定理，若选取不同数列趋向于 $0$ 时函数值趋向于不同常数，则函数极限不存在。取 $x_n = \\frac{1}{2n\\pi} \\to 0$ 时 $\\cos(1/x_n) = 1$；取 $y_n = \\frac{1}{(2n+1)\\pi} \\to 0$ 时 $\\cos(1/y_n) = -1$，极限不相等，故原函数极限不存在。"
+      }
+    },
+    {
+      "id": "ma-equiv-02",
+      "subject": "math-analysis",
+      "label": "等价无穷小替换与阶的比较",
+      "englishLabel": "Equivalent Infinitesimals & Order Comparison",
+      "textbookRef": "《工科数学分析(上)》第1章 1.6节",
+      "category": "core",
+      "difficulty": 3,
+      "status": "mastered",
+      "classroomId": "seu-ma-02",
+      "position": { "x": 370, "y": 100 },
+      "summary": "当 $x \\to 0$ 时，常用等价无穷小包括 $\\sin x \\sim x$, $\\tan x \\sim x$, $e^x - 1 \\sim x$, $\\ln(1+x) \\sim x$, $1 - \\cos x \\sim \\frac{1}{2}x^2$, $(1+x)^\\alpha - 1 \\sim \\alpha x$。注意乘除法可直接代换，加减法代换必须满足相减后主部不被抵消（即 $\\lim \\frac{f}{g} \\neq 1$）。",
+      "examQuestion": "【东大期末真题】计算极限 $\\lim_{x \\to 0} \\frac{\\tan x - \\sin x}{x^3}$。",
+      "professorTip": "四牌楼老教授点拨：千万警惕减法替换陷阱！$\\tan x - \\sin x$ 若分别替换为 $x - x = 0$ 则直接零分。正确做法是提公因式 $\\tan x(1 - \\cos x) \\sim x \\cdot \\frac{1}{2}x^2 = \\frac{1}{2}x^3$，或借助泰勒展开精确求导。",
+      "seniorSecret": "九龙湖满绩学长口诀：乘除任意换，加减慎代入；同阶相消是大忌，提因展开保平安。记住 $\\tan x - \\sin x \\sim \\frac{1}{2}x^3$ 是东大高数期末卷出题率90%的保底公式！",
+      "simulationType": "taylor-approx",
+      "quiz": {
+        "question": "计算极限 $\\lim_{x \\to 0} \\frac{\\tan x - \\sin x}{x^3}$ 的正确结果是？",
+        "options": [
+          "$0$",
+          "$\\frac{1}{2}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{1}{6}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\tan x - \\sin x = \\tan x(1 - \\cos x)$。当 $x \\to 0$ 时，$\\tan x \\sim x$，$1 - \\cos x \\sim \\frac{1}{2}x^2$，相乘得 $x \\cdot \\frac{1}{2}x^2 = \\frac{1}{2}x^3$，故极限为 $\\frac{1}{2}$。"
+      }
+    },
+    {
+      "id": "ma-lhopital-03",
+      "subject": "math-analysis",
+      "label": "洛必达法则与失效振荡项",
+      "englishLabel": "L'Hopital's Rule & Oscillation Pitfalls",
+      "textbookRef": "《工科数学分析(上)》第3章 3.2节",
+      "category": "core",
+      "difficulty": 3,
+      "status": "unlearned",
+      "classroomId": "seu-ma-03",
+      "position": { "x": 640, "y": 100 },
+      "summary": "若 $\\lim f(x) = \\lim g(x) = 0$（或 $\\infty$），且在去心邻域内 $f, g$ 可导、$g'(x) \\neq 0$。若 $\\lim \\frac{f'(x)}{g'(x)}$ 存在或为 $\\infty$，则 $\\lim \\frac{f(x)}{g(x)} = \\lim \\frac{f'(x)}{g'(x)}$。注意：若导数商的极限振荡发散，洛必达法则失效但原极限可能仍收敛！",
+      "examQuestion": "【东大期末真题】求极限 $\\lim_{x \\to +\\infty} \\frac{x + \\sin x}{x}$，并说明为何此处不能对分子分母求导应用洛必达法则。",
+      "professorTip": "四牌楼老教授点拨：很多同学一看到分式就盲目求导。对 $\\frac{x + \\sin x}{x}$ 求导得 $1 + \\cos x$，当 $x \\to +\\infty$ 时极限振荡不存在，但原极限直接拆项等于 $1 + 0 = 1$！洛必达不是万能钥匙，切记前提是导数商极限必须存在！",
+      "seniorSecret": "九龙湖满绩学长口诀：未定型先定型，零比零或无穷比；导数极限若振荡，拆项化简莫死记。看到无穷大比无穷大带三角函数的，先看能不能分子分离变量！",
+      "simulationType": "taylor-approx",
+      "quiz": {
+        "question": "关于极限 $\\lim_{x \\to +\\infty} \\frac{x + \\sin x}{x}$，下列结论正确的是？",
+        "options": [
+          "因为导数商 $\\frac{1 + \\cos x}{1}$ 极限振荡，故原极限不存在",
+          "原极限为 $1$，但洛必达法则在此题中因导数商极限不存在而失效",
+          "应用洛必达法则求得极限为 $1$",
+          "极限为 $0$"
+        ],
+        "correctIndex": 1,
+        "explanation": "当 $x \\to +\\infty$ 时，$\\frac{x + \\sin x}{x} = 1 + \\frac{\\sin x}{x}$。因为 $|\\sin x| \\le 1$，$\\frac{\\sin x}{x} \\to 0$，原式极限为 $1$。而对分子分母求导后为 $1 + \\cos x$，当 $x \\to +\\infty$ 时振荡不收敛，故洛必达法则失效但原极限存在。"
+      }
+    },
+    {
+      "id": "ma-mvt-04",
+      "subject": "math-analysis",
+      "label": "拉格朗日与柯西中值定理",
+      "englishLabel": "Lagrange & Cauchy Mean Value Theorems",
+      "textbookRef": "《工科数学分析(上)》第3章 3.1节",
+      "category": "hard",
+      "difficulty": 4,
+      "status": "unlearned",
+      "classroomId": "seu-ma-04",
+      "position": { "x": 370, "y": 340 },
+      "summary": "拉格朗日中值定理：$$f(b) - f(a) = f'(\\xi)(b - a), \\quad \\xi \\in (a, b)$$ 柯西中值定理：$$\\frac{f(b) - f(a)}{g(b) - g(a)} = \\frac{f'(\\xi)}{g'(\\xi)}, \\quad \\xi \\in (a, b)$$ 核心考点在于构造辅助函数 $F(x)$，常结合罗尔定理证明方程根的存在性或不等式。",
+      "examQuestion": "【东大期末真题】设 $f(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导，且 $f(0) = 0, f(1) = 1$。证明：存在 $\\xi \\in (0, 1)$ 使得 $f'(\\xi) = 2\\xi$。",
+      "professorTip": "四牌楼老教授点拨：证明中值定理题，80% 的功夫在构造辅助函数！欲证 $f'(\\xi) - 2\\xi = 0$，还原原函数即得 $F(x) = f(x) - x^2$，检验端点 $F(0)=0, F(1)=0$，直接套罗尔定理一气呵成。",
+      "seniorSecret": "九龙湖满绩学长口诀：求根证零找辅助，原式微分反向积；端点同值罗尔出，柯西双微除法立。看到待证式 $f'(\\xi) = 2\\xi$ 秒反应辅助函数 $F(x) = f(x) - x^2$！",
+      "simulationType": "taylor-approx",
+      "quiz": {
+        "question": "设 $f(x)$ 在 $[0, 1]$ 连续且 $(0, 1)$ 可导，$f(0)=0, f(1)=1$，要证明存在 $\\xi$ 使 $f'(\\xi) = 2\\xi$，应构造的辅助函数是？",
+        "options": [
+          "$F(x) = f(x) + 2x$",
+          "$F(x) = f(x) - x^2$",
+          "$F(x) = x \\cdot f(x)$",
+          "$F(x) = \\frac{f(x)}{1 + x^2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "对待证式 $f'(\\xi) - 2\\xi = 0$ 进行积分反推，得辅助函数 $F(x) = f(x) - x^2$。因为 $F(0) = f(0) - 0 = 0$，$F(1) = f(1) - 1^2 = 0$，由罗尔定理必存在 $\\xi \\in (0,1)$ 使 $F'(\\xi) = f'(\\xi) - 2\\xi = 0$。"
+      }
+    },
+    {
+      "id": "ma-taylor-05",
+      "subject": "math-analysis",
+      "label": "皮亚诺与拉格朗日余项泰勒公式",
+      "englishLabel": "Taylor Formula (Peano & Lagrange Remainders)",
+      "textbookRef": "《工科数学分析(上)》第3章 3.3节",
+      "category": "hard",
+      "difficulty": 5,
+      "status": "weak",
+      "classroomId": "seu-ma-05",
+      "position": { "x": 640, "y": 340 },
+      "summary": "带皮亚诺余项泰勒公式：$$f(x) = \\sum_{k=0}^n \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o((x - x_0)^n)$$ 带拉格朗日余项泰勒公式：$$R_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x - x_0)^{n+1}$$ 展开阶数必须与分母主部同阶！",
+      "examQuestion": "【东大期末真题】求极限 $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{1}{2}x^2}{x - \\sin x}$。",
+      "professorTip": "四牌楼老教授点拨：这是历年挂科率极高的经典失分题！分母 $x - \\sin x$ 泰勒展开首项是 $\\frac{1}{6}x^3$，因此分子必须毫不犹豫展开到 $x^3$ 阶！很多学生展开到 $x^2$ 阶发现算出来是 $0$ 就慌了，阶数不匹配是最大病因！",
+      "seniorSecret": "九龙湖满绩学长口诀：上下齐平定展开，分母低位指航标；分母三阶分子三，余项对齐分数安。记住 $e^x$ 展到 $\\frac{1}{6}x^3$，$\\sin x$ 展到 $-\\frac{1}{6}x^3$，分子得 $\\frac{1}{6}x^3$，分母得 $\\frac{1}{6}x^3$，答案直接等于 $1$！",
+      "simulationType": "taylor-approx",
+      "quiz": {
+        "question": "计算极限 $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{1}{2}x^2}{x - \\sin x}$ 的值为？",
+        "options": [
+          "$0$",
+          "$\\frac{1}{2}$",
+          "$1$",
+          "$2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "分母 $x - \\sin x = x - (x - \\frac{x^3}{6} + o(x^3)) = \\frac{x^3}{6} + o(x^3)$，为主部为 $3$ 阶无穷小；分子 $e^x$ 展开到 $3$ 阶：$(1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + o(x^3)) - 1 - x - \\frac{x^2}{2} = \\frac{x^3}{6} + o(x^3)$。两者相除 $(\\frac{x^3}{6})/(\\frac{x^3}{6}) = 1$。"
+      }
+    },
+    {
+      "id": "ga-surface-01",
+      "subject": "geo-algebra",
+      "label": "空间曲面与二次曲面旋转生成",
+      "englishLabel": "Spatial Quadric Surfaces & Rotational Generation",
+      "textbookRef": "周建华《几何与代数(第二版)》第3章 3.4节",
+      "category": "basic",
+      "difficulty": 3,
+      "status": "mastered",
+      "classroomId": "seu-ga-01",
+      "position": { "x": 100, "y": 120 },
+      "summary": "单叶双曲面标准方程：$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1$$ 双曲抛物面（马鞍面）：$$\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 2z$$ 截痕法：通过水平面 $z = h$ 截割曲面，研究其截痕曲线的伸缩与退化。",
+      "examQuestion": "【东大期末真题】求直线 $L: \\frac{x-1}{1} = \\frac{y}{2} = \\frac{z-1}{0}$ 绕 $z$ 轴旋转一周所得旋转曲面的方程，并指出其几何名称。",
+      "professorTip": "四牌楼老教授点拨：旋转曲面要抓牢旋转轴不变的本质。绕 $z$ 轴旋转，则轨迹上任意点到 $z$ 轴距离 $r^2 = x^2 + y^2$ 为定值。联立母线方程消去参数，直母线旋转往往生成神奇的单叶双曲面或双曲抛物面（直纹面）！",
+      "seniorSecret": "九龙湖满绩学长口诀：绕谁旋转谁不变，其余两轴平方和；截痕平面切西瓜，椭圆双曲见真容。注意单叶双曲面与双曲抛物面是东大卷常考的双重直纹面！",
+      "simulationType": "quadric-surface",
+      "quiz": {
+        "question": "方程 $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1$ 在空间解析几何中表示的二次曲面是？",
+        "options": [
+          "椭球面",
+          "单叶双曲面",
+          "双叶双曲面",
+          "双曲抛物面（马鞍面）"
+        ],
+        "correctIndex": 1,
+        "explanation": "标准方程中含两个正平方项和一个负平方项、且常数项为正 $1$ 的二次曲面是单叶双曲面；若有两个负项则为双叶双曲面。"
+      }
+    },
+    {
+      "id": "ga-rank-02",
+      "subject": "geo-algebra",
+      "label": "矩阵初等变换与秩的Sylvester不等式",
+      "englishLabel": "Elementary Operations & Sylvester Rank Inequality",
+      "textbookRef": "周建华《几何与代数》第2章 / 《北大高代》第4章",
+      "category": "core",
+      "difficulty": 3,
+      "status": "mastered",
+      "classroomId": "seu-ga-02",
+      "position": { "x": 100, "y": 340 },
+      "summary": "初等变换不改变矩阵的秩。Sylvester 秩不等式：$$r(A) + r(B) - n \\le r(AB) \\le \\min(r(A), r(B))$$ 当 $AB = 0$ 时必有 $r(A) + r(B) \\le n$（$A$ 为 $m \\times n$ 矩阵）。",
+      "examQuestion": "【东大期末真题】设 $A$ 为 $m \\times n$ 矩阵，$B$ 为 $n \\times s$ 矩阵，若 $AB = 0$，证明：$r(A) + r(B) \\le n$。",
+      "professorTip": "四牌楼老教授点拨：$AB = 0$ 意味着 $B$ 的每一个列向量都是齐次线性方程组 $AX = 0$ 的解！由解空间维数公式 $\\dim(S) = n - r(A)$，而 $B$ 的列向量组张成的子空间包含于解空间，故 $r(B) \\le n - r(A)$，结论立得。",
+      "seniorSecret": "九龙湖满绩学长口诀：乘积为零列入核，解系维数定乾坤；西尔维斯特不等式，左右夹逼秩立陈。看到 $AB = 0$ 秒反应：$r(A)+r(B) \\le n$ 以及 $B$ 的列向量是 $AX=0$ 的解！",
+      "simulationType": "matrix-eigen",
+      "quiz": {
+        "question": "设 $A$ 是 $4 \\times 3$ 矩阵且 $r(A)=2$，$B$ 是 $3 \\times 4$ 矩阵且 $AB = 0$，则矩阵 $B$ 的秩 $r(B)$ 的最大可能值为？",
+        "options": [
+          "$0$",
+          "$1$",
+          "$2$",
+          "$3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "因为 $AB = 0$，其中 $A$ 的列数为 $3$，由 Sylvester 不等式推论 $r(A) + r(B) \\le 3$。已知 $r(A) = 2$，故 $r(B) \\le 3 - 2 = 1$。"
+      }
+    },
+    {
+      "id": "ga-space-03",
+      "subject": "geo-algebra",
+      "label": "向量空间基变换与极大无关组",
+      "englishLabel": "Basis Transformation & Maximal Independent System",
+      "textbookRef": "周建华《几何与代数(第二版)》第4章 4.2节",
+      "category": "core",
+      "difficulty": 4,
+      "status": "unlearned",
+      "classroomId": "seu-ga-03",
+      "position": { "x": 370, "y": 230 },
+      "summary": "基变换公式：$$(\\beta_1, \\dots, \\beta_n) = (\\alpha_1, \\dots, \\alpha_n) P$$ 坐标变换公式：$$X = P Y \\iff Y = P^{-1} X$$ 过渡矩阵 $P$ 必可逆。",
+      "examQuestion": "【东大期末真题】已知 $\\mathbb{R}^3$ 中两组基，求基 I 到基 II 的过渡矩阵 $P$，以及向量 $\\alpha$ 在两组基下的坐标变换关系。",
+      "professorTip": "四牌楼老教授点拨：很多学生把基变换矩阵与坐标变换公式搞混！记住：基变右乘 $P$，坐标变左乘 $P$ 的逆！即 $(\\beta) = (\\alpha) P$，则坐标关系为 $X = P Y$，即 $Y = P^{-1} X$。",
+      "seniorSecret": "九龙湖满绩学长口诀：新基等旧基右乘P，旧标等新标左乘P；求P用初等行变换，增广合并同排立。将 $[旧基 \\mid 新基]$ 行化简为 $[E \\mid P]$，过渡矩阵 $P$ 自然跃然纸上！",
+      "simulationType": "matrix-eigen",
+      "quiz": {
+        "question": "设基 II 到基 I 的基变换关系为 $(\\beta) = (\\alpha) P$，若向量 $v$ 在基 $\\alpha$ 下坐标为 $X$，在基 $\\beta$ 下坐标为 $Y$，则两者关系为？",
+        "options": [
+          "$Y = P X$",
+          "$X = P Y$",
+          "$Y = P^T X$",
+          "$X = P^T Y$"
+        ],
+        "correctIndex": 1,
+        "explanation": "由 $v = (\\alpha) X = (\\beta) Y = (\\alpha) P Y$，因基向量线性无关，立得 $X = P Y$（即新坐标 $Y$ 变换为 $Y = P^{-1} X$）。"
+      }
+    },
+    {
+      "id": "ga-eigen-04",
+      "subject": "geo-algebra",
+      "label": "矩阵特征值、特征向量与相似对角化",
+      "englishLabel": "Eigenvalues, Eigenvectors & Diagonalization",
+      "textbookRef": "周建华《几何与代数(第二版)》第5章 5.2节",
+      "category": "hard",
+      "difficulty": 5,
+      "status": "weak",
+      "classroomId": "seu-ga-04",
+      "position": { "x": 640, "y": 120 },
+      "summary": "特征方程：$$\\det(\\lambda E - A) = 0, \\quad A x = \\lambda x \\; (x \\neq 0)$$ 性质：$$\\sum \\lambda_i = \\operatorname{tr}(A), \\quad \\prod \\lambda_i = \\det(A)$$ 矩阵 $A$ 可相似对角化 $\\iff$ 每个重特征值的几何重数 $n - r(\\lambda E - A)$ 等于代数重数。几何意义：特征向量方向在变换下只伸缩不发生旋转！",
+      "examQuestion": "【东大期末真题】已知三阶矩阵 $A$ 的特征值为 $1, 2, 3$，求行列式 $|A^2 - 2A + E|$ 的值，并判定 $A$ 是否必然可相似对角化。",
+      "professorTip": "四牌楼老教授点拨：多项式矩阵的特征值就是特征值的多项式！若 $\\lambda$ 是 $A$ 的特征值，则 $f(\\lambda)$ 就是 $f(A)$ 的特征值。此处多项式为 $\\lambda^2 - 2\\lambda + 1 = (\\lambda - 1)^2$，代入 $1,2,3$ 立即得到对应特征值 $0, 1, 4$，行列式等于特征值之积 $0 \\times 1 \\times 4 = 0$！且由于 $3$ 个特征值互异，必可相似对角化！",
+      "seniorSecret": "九龙湖满绩学长口诀：特征多项式算根，代入矩阵多项式；互异特征必对角，重根看秩满不满。见到 $A^2-2A+E$ 先因式分解成 $(A-E)^2$，直接利用特征值映射秒出答案！",
+      "simulationType": "matrix-eigen",
+      "quiz": {
+        "question": "设 $3$ 阶矩阵 $A$ 的特征值为 $1, 2, 3$，则行列式 $|A^2 - 2A + E|$ 的值为？",
+        "options": [
+          "$0$",
+          "$4$",
+          "$12$",
+          "$6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "多项式 $f(x) = x^2 - 2x + 1 = (x - 1)^2$。矩阵 $A^2 - 2A + E$ 的特征值为 $f(1)=(1-1)^2=0, f(2)=(2-1)^2=1, f(3)=(3-1)^2=4$。行列式等于特征值之乘积 $0 \\times 1 \\times 4 = 0$。"
+      }
+    },
+    {
+      "id": "ga-quad-05",
+      "subject": "geo-algebra",
+      "label": "实对称矩阵正交化与二次型正定判别",
+      "englishLabel": "Orthogonalization of Real Symmetric Matrix & Positive Definiteness",
+      "textbookRef": "周建华《几何与代数(第二版)》第6章 / 《北大高代》第5章",
+      "category": "hard",
+      "difficulty": 4,
+      "status": "unlearned",
+      "classroomId": "seu-ga-05",
+      "position": { "x": 640, "y": 340 },
+      "summary": "实对称矩阵必可正交对角化：$$Q^T A Q = \\Lambda = \\operatorname{diag}(\\lambda_1, \\dots, \\lambda_n)$$ 实二次型正定充要条件（Sylvester 判据）：$A$ 的所有顺序主子式全大于 $0$（即 $\\Delta_k > 0, k=1,\\dots,n$），或所有特征值全大于 $0$。",
+      "examQuestion": "【东大期末真题】设二次型 $f(x_1,x_2,x_3) = x_1^2 + 2x_2^2 + 3x_3^2 + 2t x_1 x_2$ 正定，求参数 $t$ 的取值范围。",
+      "professorTip": "四牌楼老教授点拨：二次型正定千万牢记顺序主子式法。矩阵 $A$ 第一行 $[1, t, 0]$，第二行 $[t, 2, 0]$，第三行 $[0, 0, 3]$。一阶主子式 $1 > 0$；二阶主子式 $2 - t^2 > 0 \\implies t^2 < 2$；三阶主子式 $3(2 - t^2) > 0 \\implies t^2 < 2$。故 $-\\sqrt{2} < t < \\sqrt{2}$。",
+      "seniorSecret": "九龙湖满绩学长口诀：实对称必正交化，异值正交重值施；判正定看主子式，全正特征不容疑。化二次型为标准形，配方法最快，正交变换最保几何距离！",
+      "simulationType": "quadric-surface",
+      "quiz": {
+        "question": "二次型矩阵 $A$ 正定的充分必要条件是下列哪项？",
+        "options": [
+          "所有特征值非负",
+          "$\\det(A) > 0$",
+          "$A$ 的所有顺序主子式全大于 $0$",
+          "$A$ 的各阶主子式非负"
+        ],
+        "correctIndex": 2,
+        "explanation": "根据西尔维斯特定理（Sylvester's criterion），实对称二次型正定的充要条件是其各阶顺序主子式均严格大于 $0$（或全部特征值均严格大于 $0$）。各阶主子式非负是半正定的充要条件。"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ma-01",
+      "source": "ma-limit-01",
+      "target": "ma-equiv-02",
+      "subject": "math-analysis",
+      "relation": "前置基础"
+    },
+    {
+      "id": "edge-ma-02",
+      "source": "ma-limit-01",
+      "target": "ma-mvt-04",
+      "subject": "math-analysis",
+      "relation": "连续极限推广"
+    },
+    {
+      "id": "edge-ma-03",
+      "source": "ma-equiv-02",
+      "target": "ma-lhopital-03",
+      "subject": "math-analysis",
+      "relation": "未定型求导转化"
+    },
+    {
+      "id": "edge-ma-04",
+      "source": "ma-lhopital-03",
+      "target": "ma-taylor-05",
+      "subject": "math-analysis",
+      "relation": "高阶精度深化"
+    },
+    {
+      "id": "edge-ma-05",
+      "source": "ma-mvt-04",
+      "target": "ma-taylor-05",
+      "subject": "math-analysis",
+      "relation": "拉格朗日余项推广"
+    },
+    {
+      "id": "edge-ga-01",
+      "source": "ga-surface-01",
+      "target": "ga-quad-05",
+      "subject": "geo-algebra",
+      "relation": "几何图形代数化"
+    },
+    {
+      "id": "edge-ga-02",
+      "source": "ga-rank-02",
+      "target": "ga-space-03",
+      "subject": "geo-algebra",
+      "relation": "秩与空间维数"
+    },
+    {
+      "id": "edge-ga-03",
+      "source": "ga-space-03",
+      "target": "ga-eigen-04",
+      "subject": "geo-algebra",
+      "relation": "基变换与对角化"
+    },
+    {
+      "id": "edge-ga-04",
+      "source": "ga-eigen-04",
+      "target": "ga-quad-05",
+      "subject": "geo-algebra",
+      "relation": "正交对角化"
+    }
+  ]
+}
